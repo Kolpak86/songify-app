@@ -1,0 +1,18 @@
+{
+  "projectType": "library",
+  "root": "libs/material",
+  "sourceRoot": "libs/material/src",
+  "prefix": "angular-production",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/material/src/**/*.ts",
+          "libs/material/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
