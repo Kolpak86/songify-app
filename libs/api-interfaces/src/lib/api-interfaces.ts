@@ -3,7 +3,7 @@ export interface Message {
 }
 
 export interface BaseEntity {
-  id: string;
+  id: string | null;
 }
 
 export interface Song extends BaseEntity {
