@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { SongsListComponent } from './songs/songs-list/songs-list.component';
 import { SongsDetailsComponent } from './songs/songs-details/songs-details.component';
 import { FormsModule } from '@angular/forms';
+import { UiToolbarModule } from '@angular-production/ui-toolbar';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     CoreDataModule,
     FormsModule,
+    UiToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

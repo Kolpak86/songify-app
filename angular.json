@@ -8,6 +8,7 @@
     "core-data": "libs/core-data",
     "material": "libs/material",
     "songify": "apps/songify",
-    "songify-e2e": "apps/songify-e2e"
+    "songify-e2e": "apps/songify-e2e",
+    "ui-toolbar": "libs/ui-toolbar"
   }
 }

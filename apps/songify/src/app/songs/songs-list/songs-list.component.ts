@@ -13,7 +13,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SongsListComponent {
-  @Input() songs: Song[] = [];
+  @Input() songs: Song[] | null = [];
   @Input() readonly = false;
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();

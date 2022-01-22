@@ -1,0 +1,18 @@
+{
+  "projectType": "library",
+  "root": "libs/ui-toolbar",
+  "sourceRoot": "libs/ui-toolbar/src",
+  "prefix": "angular-production",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui-toolbar/src/**/*.ts",
+          "libs/ui-toolbar/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
