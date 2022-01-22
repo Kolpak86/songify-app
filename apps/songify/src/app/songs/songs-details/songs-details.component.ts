@@ -15,5 +15,6 @@ export class SongsDetailsComponent {
   @Input() set song(value: Song) {
     if (value) this.songTitle = value.title;
     this.currentSong = { ...value };
+    console.log(this.currentSong);
   }
 }

@@ -3,23 +3,23 @@ import { SongService } from '@angular-production/core-data';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const mockSongs: Song[] = [
-  {
-    id: '1',
-    title: 'Far Beyond The Sun',
-    description: 'A neo classical song by Yngwie Malmsteen',
-  },
-  {
-    id: '2',
-    title: 'Sega Sunset',
-    description: 'A witch house banger by non other than Lorn ',
-  },
-  {
-    id: '3',
-    title: 'Norton Commander',
-    description: 'A chill alternative song by Men I Trust',
-  },
-];
+// const mockSongs: Song[] = [
+//   {
+//     id: '1',
+//     title: 'Far Beyond The Sun',
+//     description: 'A neo classical song by Yngwie Malmsteen',
+//   },
+//   {
+//     id: '2',
+//     title: 'Sega Sunset',
+//     description: 'A witch house banger by non other than Lorn ',
+//   },
+//   {
+//     id: '3',
+//     title: 'Norton Commander',
+//     description: 'A chill alternative song by Men I Trust',
+//   },
+// ];
 
 const emptySong: Song = {
   id: null,
@@ -32,7 +32,7 @@ const emptySong: Song = {
   templateUrl: './songs.component.html',
 })
 export class SongsComponent implements OnInit {
-  songs!: Song[];
+  // songs!: Song[];
   songs$!: Observable<Song[]>;
   selectedSong!: Song;
 
@@ -49,7 +49,9 @@ export class SongsComponent implements OnInit {
   }
 
   deleteSong(song: Song): void {
-    this.songs = this.songs.filter((w) => w.id !== song.id);
+    this.songService.delete(song).subscribe(() => {
+      this.songs$ = this.songService.all();
+    });
     this.selectedSong = emptySong;
   }
 
@@ -62,19 +64,22 @@ export class SongsComponent implements OnInit {
   }
 
   updateSong(song: Song): void {
-    this.songs = this.songs.map((w) => {
-      return w.id === song.id ? song : w;
+    this.songService.update(song).subscribe(() => {
+      this.songs$ = this.songService.all();
     });
     this.resetSongDetails();
   }
 
   createSong(song: Song): void {
-    const newSong = {
-      id: this.getRandomId(),
-      title: song.title,
-      description: song.description,
-    };
-    this.songs = [...this.songs, newSong];
+    // const newSong = {
+    //   id: this.getRandomId(),
+    //   title: song.title,
+    //   description: song.description,
+    // };
+    // this.songs = [...this.songs, newSong];
+    this.songService.create(song).subscribe(() => {
+      this.songs$ = this.songService.all();
+    });
     this.resetSongDetails();
   }
 
@@ -83,6 +88,6 @@ export class SongsComponent implements OnInit {
   }
 
   resetSongDetails(): void {
-    this.selectedSong = emptySong;
+    this.selectedSong = { ...emptySong };
   }
 }
